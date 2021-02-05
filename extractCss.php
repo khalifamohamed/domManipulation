@@ -3,7 +3,7 @@ $str = "https://qor360.com";
 
 $new_array = array();
 $new_array = saveCssLinks($str);
-arrayTonewCssFile($new_array);
+echo appendToString($new_array);
 
 
 function saveCssLinks($str)
@@ -67,10 +67,11 @@ function isCss($url)
 
 // This function main role is to take an array of links as a parameters and get the contents of every link, append them to the newCss.css file
 // and voila.
-function arrayTonewCssFile($arr){
-    $myfile = fopen('newCss.css', 'a');
+function appendToString($arr){
+    $str = null;
     foreach($arr as $cssLink){
-    fwrite($myfile, file_get_contents($cssLink));
+    $str .= file_get_contents($cssLink);
     }
+    return $str;
 }
 ?>
