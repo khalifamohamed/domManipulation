@@ -1,10 +1,6 @@
 <?php
 $str = "https://qor360.com";
-
-$new_array = array();
-$new_array = saveCssLinks($str);
-echo appendToString($new_array);
-
+echo saveCssLinks($str);
 
 function saveCssLinks($str)
 {
@@ -42,7 +38,7 @@ function saveCssLinks($str)
             }
         }
     }
-    return $arr_links;
+    return appendToString($arr_links);
 }
 // Function that checks whether a given url has a host (eg. facebook.com) or not.
 function checkUrl($url)
